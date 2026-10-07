@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>College AI Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🎓</div>
+
+            <div>
+                <h1>College AI</h1>
+                <span>Knowledge Assistant</span>
+            </div>
+        </div>
+
+
+        <!-- New Chat -->
+
+        <button
+            class="new-chat-btn"
+            onclick="newChat()"
+        >
+            <span>＋</span>
+            New Chat
+        </button>
+
+
+        <!-- Upload -->
+
+        <div class="upload-section">
+
+            <h3>College Documents</h3>
+
+            <p class="section-description">
+                Upload a PDF and ask questions about it.
+            </p>
+
+            <label
+                class="upload-area"
+                for="pdfInput"
+            >
+
+                <div class="upload-icon">
+                    📄
+                </div>
+
+                <strong>
+                    Upload PDF
+                </strong>
+
+                <span>
+                    Click to browse
+                </span>
+
+            </label>
+
+            <input
+                type="file"
+                id="pdfInput"
+                accept=".pdf"
+                hidden
+            >
+
+            <div
+                id="selectedFile"
+                class="selected-file hidden"
+            ></div>
+
+            <button
+                id="uploadBtn"
+                class="upload-btn"
+                onclick="uploadPDF()"
+            >
+                Upload Document
+            </button>
+
+            <div
+                id="uploadStatus"
+                class="upload-status"
+            ></div>
+
+        </div>
+
+
+        <!-- Features -->
+
+        <div class="features">
+
+            <h3>Capabilities</h3>
+
+            <div class="feature">
+                <span>📚</span>
+                <div>
+                    <strong>College Documents</strong>
+                    <small>Search uploaded PDFs</small>
+                </div>
+            </div>
+
+            <div class="feature">
+                <span>🌐</span>
+                <div>
+                    <strong>Web Search</strong>
+                    <small>Find current information</small>
+                </div>
+            </div>
+
+            <div class="feature">
+                <span>🔎</span>
+                <div>
+                    <strong>Smart Retrieval</strong>
+                    <small>Relevant sources ranked</small>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Sidebar bottom -->
+
+        <div class="sidebar-footer">
+            <span class="status-dot"></span>
+            System ready
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h2>
+                    College Knowledge Assistant
+                </h2>
+
+                <p>
+                    Ask questions about your college
+                    documents and current information.
+                </p>
+
+            </div>
+
+            <div class="online-status">
+                <span></span>
+                Online
+            </div>
+
+        </header>
+
+
+        <!-- Chat -->
+
+        <section
+            id="chatContainer"
+            class="chat-container"
+        >
+
+            <!-- Welcome -->
+
+            <div
+                id="welcome"
+                class="welcome"
+            >
+
+                <div class="welcome-icon">
+                    🎓
+                </div>
+
+                <h2>
+                    How can I help you?
+                </h2>
+
+                <p>
+                    Ask questions about college rules,
+                    admissions, attendance, regulations,
+                    notices and more.
+                </p>
+
+
+                <div class="suggestions">
+
+                    <button
+                        onclick="askSuggestion(
+                            'What is the attendance requirement?'
+                        )"
+                    >
+                        <span>📅</span>
+                        <div>
+                            <strong>Attendance</strong>
+                            <small>
+                                What is the attendance requirement?
+                            </small>
+                        </div>
+                    </button>
+
+
+                    <button
+                        onclick="askSuggestion(
+                            'What documents are required for admission?'
+                        )"
+                    >
+                        <span>📋</span>
+                        <div>
+                            <strong>Admission</strong>
+                            <small>
+                                Required admission documents
+                            </small>
+                        </div>
+                    </button>
+
+
+                    <button
+                        onclick="askSuggestion(
+                            'What are the college examination rules?'
+                        )"
+                    >
+                        <span>📝</span>
+                        <div>
+                            <strong>Examination</strong>
+                            <small>
+                                College examination rules
+                            </small>
+                        </div>
+                    </button>
+
+
+                    <button
+                        onclick="askSuggestion(
+                            'What are the latest UGC regulations?'
+                        )"
+                    >
+                        <span>🌐</span>
+                        <div>
+                            <strong>Current Information</strong>
+                            <small>
+                                Latest UGC regulations
+                            </small>
+                        </div>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Input -->
+
+        <div class="input-area">
+
+            <form
+                id="chatForm"
+                class="chat-form"
+            >
+
+                <textarea
+                    id="questionInput"
+                    placeholder="Ask anything about your college..."
+                    rows="1"
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    id="sendBtn"
+                    class="send-btn"
+                >
+                    <span>➤</span>
+                </button>
+
+            </form>
+
+            <div class="input-footer">
+
+                <span>
+                    AI-generated answers may require verification.
+                </span>
+
+                <span>
+                    College AI Assistant
+                </span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
