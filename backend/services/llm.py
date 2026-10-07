@@ -1,0 +1,27 @@
+from openai import OpenAI
+from config import settings
+
+
+class LLMService:
+    def __init__(self):
+        self.client = OpenAI(
+            api_key=settings.groq_api_key,
+            base_url="https://api.groq.com/openai/v1",
+        )
+
+    def generate(self, prompt: str) -> str:
+        response = self.client.chat.completions.create(
+            model=settings.llm_model,
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            temperature=0.1,
+        )
+
+        return response.choices[0].message.content
+
+
+llm_service = LLMService()
