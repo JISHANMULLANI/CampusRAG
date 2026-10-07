@@ -27,6 +27,7 @@ A hybrid AI assistant that retrieves relevant information from uploaded college 
 - **LLM:** Groq
 - **PDF Processing:** PyMuPDF
 
+
 ## How It Works
 
 ```text
@@ -195,3 +196,4 @@ http://127.0.0.1:8000
 ## License
 
 This project is developed as an academic/college project.
+
