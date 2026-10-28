@@ -15,6 +15,14 @@ A hybrid AI assistant that retrieves relevant information from uploaded college 
 - 🗄️ Qdrant vector database
 - 🤖 Groq LLM integration
 
+
+## Prerequisites
+
+- Python 3.12 (3.14 is too new for some ML packages)
+- Docker Desktop
+- Groq and Tavily API keys
+- At least 8 GB RAM (embedding and reranker models load at startup)
+
 ## Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript
@@ -97,7 +105,7 @@ cd CampusRAG
 ### 2. Create virtual environment
 
 ```bash
-python -m venv .venv
+py -3.12 -m venv .venv
 ```
 
 Activate it on Windows:
@@ -151,7 +159,7 @@ docker ps
 From the `backend` directory:
 
 ```bash
-uvicorn main:app --reload
+python -m uvicorn main:app --reload
 ```
 
 Open:
